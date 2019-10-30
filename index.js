@@ -1,6 +1,6 @@
 (function() {
 
-    var canvas, gl, program, program2, program3;
+    var canvas, gl, program, program2;
     glUtils.SL.init({ callback: function() { main(); } });
 
     function main() {
@@ -132,7 +132,7 @@
 
         function render() {
 
-            gl.useProgram(program);
+            gl.useProgram(program2);
             // Bersihkan layar jadi hitam
             gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -166,7 +166,7 @@
 
         function render2() {
 
-            gl.useProgram(program2);
+            gl.useProgram(program3);
             var thetaCube = [10, 10, 0];
             gl.uniform3fv(thetaLocCube, thetaCube);
             drawShapes2(gl.LINES, kubus, 24);
