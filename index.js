@@ -10,7 +10,6 @@
         // var gl2 = glUtils.checkWebGL(canvas2);
 
         window.addEventListener('resize', resizer);
-        // window.addEventListener('resize2', resizer);
 
         var vertexShader = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v1.vertex);
         var fragmentShader = glUtils.getShader(gl, gl.FRAGMENT_SHADER, glUtils.SL.Shaders.v1.fragment);
@@ -19,13 +18,34 @@
         var vertexShader2 = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v2.vertex);
         var program2 = glUtils.createProgram(gl, vertexShader2, fragmentShader);
 
+        var vertexShader3 = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v3.vertex);
+        var program3 = glUtils.createProgram(gl, vertexShader3, fragmentShader);
 
-        var linesVertices = new Float32Array([-0.3, 0.0, 1.0, 1.0, 1.0, -0.1, 0.0, 1.0, 1.0, 1.0, -0.1, -0.8, 1.0, 1.0, 1.0,
-            0.1, -0.8, 1.0, 1.0, 1.0,
-            0.1, 0.0, 1.0, 1.0, 1.0,
-            0.3, 0.0, 1.0, 1.0, 1.0,
-            0.3, +0.4, 1.0, 1.0, 1.0, -0.3, +0.4, 1.0, 1.0, 1.0
+        resizer();
+
+        //kubus
+        var kubus = ([
+            //BAWAH
+            -0.3, -0.8, 0.7, 255, 255, 255,
+            0.4, -0.8, 0.7, 255, 255, 255,
+            0.4, -0.8, 0.7, 255, 255, 255,
+            0.4, -0.8, -0.6, 255, 255, 255,
+            0.4, -0.8, -0.6, 255, 255, 255, -0.3, -0.8, -0.6, 255, 255, 255, -0.3, -0.8, -0.6, 255, 255, 255, -0.3, -0.8, 0.7, 255, 255, 255,
+            //ATAS
+            -0.3, 0.6, 0.7, 255, 255, 255,
+            0.4, 0.6, 0.7, 255, 255, 255,
+            0.4, 0.6, 0.7, 255, 255, 255,
+            0.4, 0.6, -0.6, 255, 255, 255,
+            0.4, 0.6, -0.6, 255, 255, 255, -0.3, 0.6, -0.6, 255, 255, 255, -0.3, 0.6, -0.6, 255, 255, 255, -0.3, 0.6, 0.7, 255, 255, 255,
+            //BELAKANG
+            -0.3, -0.8, 0.7, 255, 255, 255, -0.3, 0.6, 0.7, 255, 255, 255,
+            0.4, -0.8, 0.7, 255, 255, 255,
+            0.4, 0.6, 0.7, 255, 255, 255,
+            //DEPAN
+            0.4, -0.8, -0.6, 255, 255, 255,
+            0.4, 0.6, -0.6, 255, 255, 255, -0.3, -0.8, -0.6, 255, 255, 255, -0.3, 0.6, -0.6, 255, 255, 255
         ]);
+
         var triangleVertices2 = [
             // x, y,      r, g, b
             -0.3, 0.0, 1.0, 0.0, 0.0, -0.3, 0.4, 1.0, 0.0, 0.0,
@@ -156,7 +176,7 @@
             requestAnimationFrame(render2);
         };
         render2();
-        resizer();
+
 
     }
 })();
