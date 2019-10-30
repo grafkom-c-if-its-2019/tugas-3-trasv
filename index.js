@@ -1,26 +1,26 @@
 (function() {
 
-    var canvas;
+    var canvas, gl, program, program2, program3;
     glUtils.SL.init({ callback: function() { main(); } });
 
     function main() {
 
-        var canvas = document.getElementById("glcanvas");
+        canvas = document.getElementById("glcanvas");
         // var canvas2 = document.getElementById("glcanvas2");
-        var gl = glUtils.checkWebGL(canvas);
+        gl = glUtils.checkWebGL(canvas);
         // var gl2 = glUtils.checkWebGL(canvas2);
 
         window.addEventListener('resize', resizer);
 
         var vertexShader = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v1.vertex);
         var fragmentShader = glUtils.getShader(gl, gl.FRAGMENT_SHADER, glUtils.SL.Shaders.v1.fragment);
-        var program = glUtils.createProgram(gl, vertexShader, fragmentShader);
+        program = glUtils.createProgram(gl, vertexShader, fragmentShader);
 
         var vertexShader2 = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v2.vertex);
-        var program2 = glUtils.createProgram(gl, vertexShader2, fragmentShader);
+        program2 = glUtils.createProgram(gl, vertexShader2, fragmentShader);
 
         var vertexShader3 = glUtils.getShader(gl, gl.VERTEX_SHADER, glUtils.SL.Shaders.v3.vertex);
-        var program3 = glUtils.createProgram(gl, vertexShader3, fragmentShader);
+        program3 = glUtils.createProgram(gl, vertexShader3, fragmentShader);
 
         resizer();
 
@@ -146,17 +146,17 @@
             // Bersihkan buffernya canvas
             gl.clear(gl.COLOR_BUFFER_BIT);
 
-            if (trans1[0] >= 0.4 * 0.8 || trans1[0] <= -0.2 * 1.0) {
+            if (trans1[0] >= 0.4 * 0.8 || trans1[0] <= -0.3 * 0.8) {
                 X1 *= -1;
             }
             trans1[0] += X1;
 
-            if (trans1[1] >= 0.6 * 0.8 || trans1[1] <= -0.6 * 1.0) {
+            if (trans1[1] >= 0.6 * 0.8 || trans1[1] <= -0.8 * 0.8) {
                 Y1 *= -1;
             }
             trans1[1] += Y1;
 
-            if (trans1[2] >= 0.7 * 0.8 || trans1[2] <= -0.5 * 1.0) {
+            if (trans1[2] >= 0.7 * 0.8 || trans1[2] <= -0.6 * 0.8) {
                 Z1 *= -1;
             }
             trans1[2] += Z1;
@@ -174,7 +174,7 @@
         function render2() {
 
             gl.useProgram(program2);
-            var thetaCube = [0, 0, 0];
+            var thetaCube = [10, 10, 0];
             gl.uniform3fv(thetaLocCube, thetaCube);
             drawShapes2(gl.LINES, kubus, 24);
             requestAnimationFrame(render2);
