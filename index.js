@@ -1,5 +1,6 @@
 (function() {
 
+    var canvas;
     glUtils.SL.init({ callback: function() { main(); } });
 
     function main() {
