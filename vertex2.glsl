@@ -4,7 +4,7 @@ attribute vec2 vPosition;
 attribute vec3 vColor;
 varying vec3 fColor;
 uniform vec3 trans1;
-uniform float theta1;
+uniform vec3 theta1;
 // uniform float scaleX;
 // uniform float scaleY;
 

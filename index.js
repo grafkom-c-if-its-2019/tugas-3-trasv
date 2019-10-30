@@ -6,9 +6,7 @@
     function main() {
 
         canvas = document.getElementById("glcanvas");
-        // var canvas2 = document.getElementById("glcanvas2");
         gl = glUtils.checkWebGL(canvas);
-        // var gl2 = glUtils.checkWebGL(canvas2);
 
         window.addEventListener('resize', resizer);
 
@@ -121,11 +119,6 @@
             gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
             gl.drawArrays(type, 0, n);
         }
-
-        var translation = gl.getUniformLocation(program, 'translation');
-        gl.uniform3f(translation, 0.0, 0.0, 0.0);
-        // var translation2 = gl2.getUniformLocation(program2, 'translation2');
-        // gl2.uniform3f(translation2, 0.0, 0.0, 0.0);
 
         var thetaLoc1 = gl.getUniformLocation(program2, 'theta1');
         var transLoc1 = gl.getUniformLocation(program2, 'trans1');
